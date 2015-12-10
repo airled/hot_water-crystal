@@ -8,11 +8,6 @@ module HotWater::Crystal
     render "views/index.ecr"
   end
 
-  get "/styles.css" do |env|
-    env.content_type = "text/css"
-    File.read("./public/styles.css")
-  end
-
   get "/date" do |env|
     #   if (params.size == 2) &&
     #      (params.has_key?('street')) && (params.has_key?('house')) &&
