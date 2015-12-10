@@ -1,0 +1,68 @@
+require_relative './init_db'
+Sequel.extension :migration
+
+namespace :db do
+  desc "Prints current schema version"
+  task :version do
+    version = if DB.tables.include?(:schema_info)
+      DB[:schema_info].first[:version]
+    end || 0
+  puts "Schema Version: #{version}"
+  end
+
+  desc "Perform migration up to latest migration available"
+  task :migrate do
+    Sequel::Migrator.run(DB, "db/migrate")
+    Rake::Task['db:version'].execute
+  end
+  
+  desc "Perform rollback to specified target or full rollback as default"
+  task :rollback, :target do |t, args|
+    args.with_defaults(:target => 0)
+    Sequel::Migrator.run(DB, "db/migrate", :target => args[:target].to_i)
+    Rake::Task['db:version'].execute
+  end
+
+  desc "Perform migration reset (full rollback and migration)"
+  task :reset do
+    Sequel::Migrator.run(DB, "db/migrate", :target => 0)
+    Sequel::Migrator.run(DB, "db/migrate")
+    Rake::Task['db:version'].execute
+  end
+end
+
+desc "Enter the application console"
+task :c do
+  require_relative './app'
+  require 'irb'
+  ARGV.clear
+  IRB.start
+end
+
+desc "Parse source HTML page"
+task :parse do
+  require_relative './lib/parser'
+  Parser.new.run
+end
+
+desc "Reset database table and parse source HTML"
+task :reparse do
+  Rake::Task['db:reset'].execute
+  Rake::Task['parse'].execute
+end
+
+desc "Deploy and restart the application"
+task :deploy do
+  system ('mina unicorn:stop && mina deploy && mina unicorn:start')
+end
+
+desc "Push changes to Github, deploy and restart the application"
+task :all do
+  system ('git add -A && git commit && git push && rake deploy')
+end
+
+namespace :app do
+  task :start do
+    system('bundle exec rackup')
+  end
+end

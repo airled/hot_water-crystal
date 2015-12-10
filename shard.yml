@@ -1,0 +1,12 @@
+name: hot_water-crystal
+version: 0.1.0
+
+authors:
+  - airled <airled@mail.ru>
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: sdogruyol/kemal
+    branch: master

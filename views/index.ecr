@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Даты отключения горячей воды в Минске</title>
+    <link rel="stylesheet" href="assets/application.css">
+    <link rel="icon" href="favicon.ico">
+    <script type="text/javascript">var serverURL = "<%= ENV['source_server'] %>";</script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?language=ru"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="assets/application.js"></script>
+  </head>
+  <body>
+    <div id='container'>
+      <header>
+        <div id='header'>Поиск даты отключения горячей воды по адресам</div>
+      </header>
+      <aside id='panel'>
+        <form>
+          <fieldset>
+            <legend>Найти дату</legend>
+            Название улицы:
+            <br>
+            <input type="text" id='form_street' name="street">
+            <br>
+            Номер дома:
+            <br>
+            <input type="text" id='form_house' name="house">
+            <br>
+            <input type="button" id ='form_button' value="Найти">
+          </fieldset>
+        </form>
+        <div id="results"></div>
+      </aside>
+      <div id="map-canvas" title="Щелкните по дому для отображения адреса с датой">
+        <div id='temp'>Пожалуйста, включите JavaScript</div>
+      </div>
+      <footer>
+        <div id='footer_left'>
+          Даты отключения горячей воды взяты с сайта <a href="http://www.belta.by/regions/view/grafik-otkljuchenija-gorjachej-vody-v-minske-v-2015-godu-153269-2015" target="_blank">'belta.by'</a>
+        </div>
+        <div id="footer_right">2015</div>
+      </footer>
+    </div>
+  </body>
+</html>
