@@ -2,7 +2,7 @@ require "./hot_water-crystal/*"
 require "kemal"
 
 module HotWater::Crystal
-  get '/' do
+  get "/" do
     render "views/index.ecr"
   end
 
