@@ -36,3 +36,7 @@ task :parse do
   require_relative './libs_ruby/parser'
   Parser.new.run
 end
+
+task :b do
+  system("crystal build src/hot_water-crystal.cr -o app && ./app")
+end

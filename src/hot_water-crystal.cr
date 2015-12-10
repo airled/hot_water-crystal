@@ -1,5 +1,7 @@
-require "./hot_water-crystal/*"
 require "kemal"
+require "mysql"
+require "active_record"
+require "./hot_water-crystal/*"
 
 module HotWater::Crystal
   get "/" do
@@ -32,5 +34,11 @@ module HotWater::Crystal
     #   (addresses.map { |address| {id: nil, label: address.street, value: address.street} }).to_json
     env.content_type = "application/json"
     term.to_json
+  end
+
+  get "/test" do |env|
+    q = env.params["q"]
+    Offdate.create({"date" => q})
+    "test"
   end
 end
