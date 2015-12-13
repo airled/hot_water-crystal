@@ -9,18 +9,19 @@ module HotWater::Crystal
   end
 
   get "/date" do |env|
-    #   if (params.size == 2) &&
-    #      (params.has_key?('street')) && (params.has_key?('house')) &&
-    #      (params[:street].match(/[^А-Яа-я0-9ё\.\ \-]/).nil?) && (params[:house].match(/[^А-Яа-яё0-9\.\ ]/).nil?)
-    #        street = params[:street]
-    #        house = params[:house]
-    #        date = Finder.new.date_find(street, house)
-    #        {date: date}.to_json
-    #   else
-    #     'Params error'
-    #   end
-    env.content_type = "application/json"
-    "something will be here".to_json
+    if (env.params.size == 2) &&
+       (env.params.has_key?("street")) &&
+       (env.params.has_key?("house")) # &&
+      # (env.params["street"].match(/[^А-Яа-я0-9ё\.\ \-]/).nil?) &&
+      # (env.params["house"].match(/[^А-Яа-яё0-9\.\ ]/).nil?)
+      street = env.params["street"]
+      house = env.params["house"]
+      #        date = Finder.new.date_find(street, house)
+      # env.content_type = "application/json"
+      # {date: date}.to_json
+    else
+      "Params error"
+    end
   end
 
   get "/auto_street" do |env|
