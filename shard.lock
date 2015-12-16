@@ -6,7 +6,7 @@ shards:
 
   kemal:
     github: sdogruyol/kemal
-    commit: 5c979427078644625d9f8a86368306cbe7499ad0
+    commit: 88c19f00519e19285fbc7e2bb1e688224356315e
 
   mysql:
     github: waterlink/crystal-mysql
