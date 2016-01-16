@@ -1,0 +1,7 @@
+development:
+  source_server: 'http://localhost:3000'
+  database: 'hotwater_development'
+
+production:
+  source_server: 'http://hotwater.muzenza.by'
+  database: 'hotwater_production'

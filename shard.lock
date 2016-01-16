@@ -1,14 +1,10 @@
 version: 1.0
 shards:
-  active_record:
-    github: waterlink/active_record.cr
-    version: 0.1.2
+  ambience:
+    github: vjdhama/ambience
+    version: 0.1.0
 
   kemal:
     github: sdogruyol/kemal
     commit: 6194603fdb8e05683e2897d8a36ce606d81f41b1
-
-  mysql:
-    github: waterlink/crystal-mysql
-    version: 0.3.0
 
