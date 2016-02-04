@@ -6,5 +6,9 @@ shards:
 
   kemal:
     github: sdogruyol/kemal
-    commit: 2cc4c17c8003e6cc029cc21827c3ede953067cd8
+    commit: da1d025101424b56fdcd6d1f7ff45b6aa996539f
+
+  radix:
+    github: luislavena/radix
+    version: 0.1.0
 
