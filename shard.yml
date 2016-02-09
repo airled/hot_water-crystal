@@ -12,3 +12,6 @@ dependencies:
     branch: master
   ambience:
     github: vjdhama/ambience
+  mysql:
+    github: waterlink/crystal-mysql
+    version: 0.4.1
