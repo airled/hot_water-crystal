@@ -2,11 +2,15 @@ version: 1.0
 shards:
   ambience:
     github: vjdhama/ambience
-    version: 0.1.0
+    version: 0.3.8
 
   kemal:
     github: sdogruyol/kemal
-    commit: 70ef8a771872e8efdb9d1379c3761f16e4c51f71
+    commit: 7b1bc43a412bc0e2396ac3ff15b60f4686ee678d
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.3.3
 
   mysql:
     github: waterlink/crystal-mysql
@@ -14,5 +18,5 @@ shards:
 
   radix:
     github: luislavena/radix
-    version: 0.1.0
+    version: 0.1.1
 
