@@ -2,11 +2,11 @@ version: 1.0
 shards:
   ambience:
     github: vjdhama/ambience
-    version: 0.3.8
+    version: 0.3.9
 
   kemal:
     github: sdogruyol/kemal
-    commit: 7b1bc43a412bc0e2396ac3ff15b60f4686ee678d
+    commit: 3b4440d358c47f9f9b935cc8249674f9e795a100
 
   kilt:
     github: jeromegn/kilt
